@@ -1,0 +1,59 @@
+<body>
+    <div >
+<form [formGroup]="Students" (ngSubmit)="submit()">
+
+<div class="col-sm-76">
+        <label  class="col-sm-2 col-form-label"><b>Id: </b></label>
+        <input type="text" placeholder="name" formControlName="id">
+        <div style="color: red;" *ngIf="Students.controls['id'].touched && Students.controls['id'].invalid">
+            <span *ngIf="Students.controls['id'].hasError('required')">id is required</span>
+            <span *ngIf="Students.controls['id'].hasError('pattern')">only alphabate with
+                space between 2 to 20 charecters
+            </span>
+        </div>
+        </div><br>
+
+<div class="col-sm-76">
+<label  class="col-sm-2 col-form-label"><b>Name: </b></label>
+<input type="text" placeholder="name" formControlName="name">
+<div style="color: red;" *ngIf="Students.controls['name'].touched && Students.controls['name'].invalid">
+    <span *ngIf="Students.controls['name'].hasError('required')">name is required</span>
+    <span *ngIf="Students.controls['name'].hasError('pattern')">only alphabate with
+        space between 2 to 20 charecters
+    </span>
+</div>
+</div><br>
+
+<div>
+<label for="address"><b>address: </b></label>
+<input type="text" placeholder="address" formControlName="address" required>
+<div *ngIf="Students.controls['address'].touched && Students.controls['address'].invalid">
+    <span *ngIf="Students.controls['address'].hasError('required')">address is required</span>
+</div>
+</div><br>
+
+<div>
+<label for="mobile"><b>mobno: </b></label>
+<input type="text" placeholder="mobile no" formControlName="mobile" required>
+<div *ngIf="Students.controls['mobile'].touched && Students.controls['mobile'].invalid">
+    <span *ngIf="Students.controls['mobile'].hasError('required')">mobile no is required</span>
+    <span *ngIf="Students.controls['mobile'].getError?.length">use 10 digit mob no</span>
+</div>
+</div><br>
+
+<div>
+    <button class="btn btn-success btn-lg btn-block" (click)="submit()">Submit</button>
+</div>
+</form>
+<div>
+    <button class="btn btn-warning btn-lg btn-block" (click)="Reset()">reset</button>
+</div>
+</div>
+</body> 
+
+
+
+
+
+
+
